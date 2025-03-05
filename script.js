@@ -5,11 +5,10 @@ let playerPoints=0;
 let computerPoints=0;
 
 
-alert("Welcome to the 'Rock, paper, scissors' game!")
-playRound()
-
 function playRound() {
-        playerChoice = prompt("Choose 'rock', 'paper' or 'scissors'.");
+    alert("Welcome to the 'Rock, paper, scissors' game!")
+    while(computerPoints<5 && playerPoints<5){
+        playerChoice =  prompt("Choose 'rock', 'paper' or 'scissors'.");
         getComputerChoice();
 
         switch (playerChoice) {
@@ -58,7 +57,8 @@ function playRound() {
                     }
             break;
         }
-    gameOver();
+    }
+    gameOver()
 }
 
 function computerWins()
@@ -110,10 +110,9 @@ function gameOver()
         console.log("YOU WON THE GAME!!!");
         return;
     }
-    else if(computerPoints===5)
+    else
     {
         console.log("YOU JUST LOST THE GAME.");
         return;
     }
-    playRound()
 }
