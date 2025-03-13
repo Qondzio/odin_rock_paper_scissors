@@ -3,12 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock, paper, scissors</title>
 </head>
 <body>
-    <h1 style="text-align: center; margin-top: 300px;">Refresh the page to play the game. Open console for more details.</h1>
+    <div class="gamePanel">
+        <div class="scoreboard">
+            <div class="playerPoints">
+                <p>Player points:  </p>
+                <p id="playerPoints"> 0</p>
+            </div>
+            <div class="computerPoints">
+                <p>Computer points:  </p>
+                <p id="computerPoints"> 0</p>
+            </div>
+        </div>
+        <div class="monitor">
+            <div class="playerChoice">
+                <p>Your choice:</p>
+                <p id="playerChoice"></p>
+            </div>
+            <div class="computerChoice">
+                <p>Computer choice:</p>
+                <p id="computerChoice"></p>
+            </div>
+            <div class="result">
+                <p>Result: </p>
+                <p id="result"></p>
+            </div>
+        </div>
+        <div class="buttonChoice">
+            <div class="buttonOne">
+                <button id="rock">✊</button>
+            </div>
+            <div class="buttonTwo">
+                <button id="paper">✋</button>
+            </div>
+            <div class="buttonThree">
+                <button id="scissors">✌️</button>
+            </div>
+        </div>
+    </div>
 
-    <button onclick="playRound()">Click to start the game.</button>
+    <h1 id="gameResult" style="text-align: center;">Pick your choice! To win the game you must score 5 points.</h1>
+
     <script src="script.js"></script>
 </body>
 </html>

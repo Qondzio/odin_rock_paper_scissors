@@ -1,0 +1,56 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 98vh;
+}
+.gamePanel{
+    width: 600px;
+    height: 400px;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.scoreboard{
+    display: flex;
+    justify-content: space-around;
+}
+
+.monitor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0px;
+}
+.playerPoints, .computerPoints{
+    display: flex;
+    gap: 10px;
+}
+
+.playerChoice, .computerChoice, .result{
+    flex:1;
+    display: flex;
+    gap: 20px;
+}
+
+.buttonChoice{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+button{
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    border:0px;
+    outline: none;
+    border-radius: 15px;
+}
+
+button:hover{
+    background-color: grey;
+    cursor: pointer;
+}

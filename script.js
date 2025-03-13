@@ -1,14 +1,26 @@
-let playerChoice 
-let randomNumber
-let computerChoice
+let playerChoiceDiv=document.getElementById("playerChoice");
+let computerChoiceDiv=document.getElementById("computerChoice");
+let playerPointsDiv=document.getElementById("playerPoints");
+let computerPointsDiv=document.getElementById("computerPoints");
+let resultDiv=document.getElementById("result");
+let rock=document.getElementById("rock");
+let paper=document.getElementById("paper");
+let scissors=document.getElementById("scissors");
+let gameResult=document.getElementById("gameResult");
+
+let computerChoice;
 let playerPoints=0;
 let computerPoints=0;
+let randomNumber
+
+rock.addEventListener("click", function (){playRound("rock")});
+paper.addEventListener("click", function (){playRound("paper")});
+scissors.addEventListener("click", function (){playRound("scissors")});
 
 
-function playRound() {
-    alert("Welcome to the 'Rock, paper, scissors' game!")
-    while(computerPoints<5 && playerPoints<5){
-        playerChoice =  prompt("Choose 'rock', 'paper' or 'scissors'.");
+function playRound(playerChoice) {
+    if (playerPoints<5 && computerPoints<5)
+    {
         getComputerChoice();
 
         switch (playerChoice) {
@@ -57,8 +69,9 @@ function playRound() {
                     }
             break;
         }
+        updateStats(playerChoice);
+        gameOver()
     }
-    gameOver()
 }
 
 function computerWins()
@@ -67,6 +80,7 @@ function computerWins()
     console.log("Computer wins.");
     console.log(playerPoints);
     console.log(computerPoints);
+    resultDiv.textContent="Computer wins.";
 }
 
 function playerWins()
@@ -75,6 +89,7 @@ function playerWins()
     console.log("You win.");
     console.log(playerPoints);
     console.log(computerPoints);
+    resultDiv.textContent="You win.";
 }
 
 function draw()
@@ -82,6 +97,7 @@ function draw()
     console.log("Draw.");
     console.log(playerPoints);
     console.log(computerPoints);
+    resultDiv.textContent="Draw.";
 }
 
 function getComputerChoice()
@@ -103,16 +119,48 @@ function getComputerChoice()
 }
 
 
+function updateStats(playerChoice){
+    playerPointsDiv.textContent=playerPoints;
+    computerPointsDiv.textContent=computerPoints;
+
+    if (playerChoice==="rock")
+    {
+        playerChoiceDiv.textContent="✊";
+    }
+    else if (playerChoice==="paper")
+    {
+        playerChoiceDiv.textContent="✋";
+    }
+    else
+    {
+        playerChoiceDiv.textContent="✌️";
+    }
+
+    if (computerChoice==="rock")
+    {
+        computerChoiceDiv.textContent="✊";
+    }
+    else if (computerChoice==="paper")
+    {
+        computerChoiceDiv.textContent="✋";
+    }
+    else
+    {
+        computerChoiceDiv.textContent="✌️";
+    }
+}
 function gameOver()
 {
     if(playerPoints===5)
     {
         console.log("YOU WON THE GAME!!!");
+        gameResult.textContent="YOU WON THE GAME!!!";
         return;
     }
-    else
+    else if(computerPoints===5)
     {
         console.log("YOU JUST LOST THE GAME.");
+        gameResult.textContent="YOU JUST LOST THE GAME.";
         return;
     }
 }
